@@ -1,0 +1,20 @@
+//Base
+@font-face {
+    font-family: @font;
+    src: url('@{font-path}helvetica.eot');
+    src: url('@{font-path}helvetica.woff2') format('woff2'),
+    url('@{font-path}helvetica.woff') format('woff'),
+    url('@{font-path}helvetica.ttf') format('truetype'),
+    url('@{font-path}helvetica.svg#gillsans') format('svg'),
+    url('@{font-path}helvetica.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: @font;
+    font-size: @base-font;
+    line-height: 1;
+    color: @black;
+    background: @pri-bg;
+}

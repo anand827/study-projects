@@ -1,0 +1,10 @@
+/*--Include Vendors Here--*/
+
+@import url('./base/base.css');
+@import url('./layout/header.css');
+@import url('./pages/home.css');
+
+/*--Include other pages Here--*/
+
+@import url('./layout/footer.css');
+@import url('./media/media.css');

@@ -1,0 +1,27 @@
+1.Css Framewoks & Library 
+-------------------------
+    1.Bootstrap
+    2.
+
+2.Js Frameworks & Library
+------------------------
+    1.Jquery
+    2. 
+
+3.Methodology
+-------------
+    1.BEM
+    2.
+
+4.Optmization
+-------------
+    1.Js              -- Yes/No
+    2.Css             -- Yes/No
+    3.Image           -- Yes/No
+    4.Csslint         -- Yes/No
+    5.W3C Validation  -- Yes/No
+    6.Responsive      -- Yes/No
+    7.Cross Browser   -- Yes/No
+
+5.Project Members
+-----------------

@@ -1,0 +1,222 @@
+//Usage
+//-----
+//.sprite(5px 20px,20px,20px);              ---- .sprite(pos-x pos-y,width,height);
+//.position(absolute,58px,2px,2px,10px);    ---- .position(position,top,right,bottom,left);
+//.placeholder(red,15px);                   ---- .placeholder(color,font-size);
+//.opacity(1);                              ---- .opacity(opacity);
+//.triangle(red,up,5px);                    ---- .triangle(color,direction,size); direction=up,down,left,right
+//.background-gradient(red,red,vertical);   ---- .background-gradient(color,color,orientation); orientation=vertical,horizontal,''
+//.button(small);                           ---- .button(size); size=small,large,null
+//.button(small,sec);                       ---- .button(size,alternate); alternate=sec,null
+
+//Sprite
+.sprite(@pos:0 0, @s-width:0, @s-height:0) {
+    background:url('@{image-path}sprite.png') no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: @s-width;
+    height: @s-height;
+    background-position: @pos;
+}
+
+//Position
+.position-top(@top) when (@top = null) { }
+.position-top(@top) when not (@top = null) {
+  top: @top;
+}
+
+.position-right(@right) when (@right = null) { }
+.position-right(@right) when not (@right = null) {
+  right: @right;
+}
+
+.position-bottom(@bottom) when (@bottom = null) { }
+.position-bottom(@bottom) when not (@bottom = null) {
+  bottom: @bottom;
+}
+
+.position-left(@left) when (@left = null) { }
+.position-left(@left) when not (@left = null) {
+  left: @left;
+}
+
+.position(@position, @top, @right, @bottom, @left) {
+  position: @position;
+  .position-top(@top);
+  .position-right(@right);
+  .position-bottom(@bottom);
+  .position-left(@left);
+}
+
+//Placeholder
+.placeholder(@color:null,@fontsize:null) {
+    &::-webkit-input-placeholder {
+        color: @color;
+        font-size: @fontsize;
+    }
+    &::-moz-placeholder {
+        color: @color;
+        font-size: @fontsize;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+        font-size: @fontsize;
+    }
+    &:-moz-placeholder {
+        color: @color;
+        font-size: @fontsize;
+    }
+}
+
+//Opacity
+.opacity(@opacity:null) when (@opacity = null){}
+.opacity(@opacity:null) when not (@opacity = null){
+    opacity: @opacity;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{opacity * 100})";
+}
+
+//Triangle shape
+.triangle(@color:null,@direction:null,@size: null) when (@direction = up) {
+    width: 0;
+    height: 0;
+    border-left: @size solid transparent;
+    border-right: @size solid transparent;
+    border-bottom: @size solid @color;
+    margin-bottom: 0 - round( @size / 2.5);
+    display:inline-block;
+}
+.triangle(@color:null,@direction:null,@size: null) when (@direction = right) {
+    width: 0;
+    height: 0;
+    border-top: @size solid transparent;
+    border-bottom: @size solid transparent;
+    border-left: @size solid @color;
+    margin-right: -@size;
+    display:inline-block;
+}
+.triangle(@color:null,@direction:null,@size: null) when (@direction = left) {
+    width: 0;
+    height: 0;
+    border-top: @size solid transparent;
+    border-bottom: @size solid transparent;
+    border-right: @size solid @color;
+    margin-left: -@size;
+    display:inline-block;
+}
+.triangle(@color:null,@direction:null,@size: null) when (default()) {
+    width: 0;
+    height: 0;
+    border-left: @size solid transparent;
+    border-right: @size solid transparent;
+    border-top: @size solid @color;
+    margin-top: 0 - round( @size / 2.5);
+    display:inline-block;
+}
+
+//Background gradient
+.background-gradient(@start-color:null,@end-color:null,@orientation:null) when (@orientation = vertical) {
+    background: linear-gradient(to bottom, @start-color, @end-color);
+}
+.background-gradient(@start-color:null,@end-color:null,@orientation:null) when (@orientation = horizontal) {
+    background: linear-gradient(to right, @start-color, @end-color);
+}
+.background-gradient(@start-color:null,@end-color:null,@orientation:null) when (default()){
+    background: radial-gradient(ellipse at center, @start-color, @end-color);
+}
+
+//Button
+.button(@size:null,@sec:null){
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: none;
+    display: inline-block;
+    border-radius:3px;
+    margin:0 10px;
+    & when (@size = large){
+        padding: 12px 20px;
+        font-size:20px;
+        & when (@sec = null){
+            background: @pri-btn;
+            color: @pri-clr;
+            border: 1px solid @sec-btn;
+            &--active,
+            &:hover,
+            &:focus {
+                background: @sec-btn;
+                color: @sec-clr;
+                border-color: @pri-btn;
+            }
+        }
+        & when (@sec = sec){
+            background: @sec-btn;
+            color: @sec-clr;
+            border: 1px solid @pri-btn;
+            &--active,
+            &:hover,
+            &:focus {
+                background: @pri-btn;
+                color: @pri-clr;
+                border-color: @sec-btn;
+            }
+        }
+    }
+    & when (@size = null){
+        padding: 10px 15px;
+        font-size:18px;
+        & when (@sec = null){
+            background: @pri-btn;
+            color: @pri-clr;
+            border: 1px solid @sec-btn;
+            &--active,
+            &:hover,
+            &:focus {
+                background: @sec-btn;
+                color: @sec-clr;
+                border-color: @pri-btn;
+            }
+        }
+        & when (@sec = sec){
+            background: @sec-btn;
+            color: @sec-clr;
+            border: 1px solid @pri-btn;
+            &--active,
+            &:hover,
+            &:focus {
+                background: @pri-btn;
+                color: @pri-clr;
+                border-color: @sec-btn;
+            }
+        }   
+    }
+    & when (@size = small){
+        padding: 7px 10px;
+        font-size: 15px;
+        & when (@sec = null){
+            background: @pri-btn;
+            color: @pri-clr;
+            border: 1px solid @sec-btn;
+            &--active,
+            &:hover,
+            &:focus {
+                background: @sec-btn;
+                color: @sec-clr;
+                border-color: @pri-btn;
+            }
+        }
+        & when (@sec = sec){
+            background: @sec-btn;
+            color: @sec-clr;
+            border: 1px solid @pri-btn;
+            &--active,
+            &:hover,
+            &:focus {
+                background: @pri-btn;
+                color: @pri-clr;
+                border-color: @sec-btn;
+            }
+        }
+    }
+}
+
+
+

@@ -1,0 +1,154 @@
+//Usage
+//-----
+//@include sprite(5px 20px,20px,20px);            ---- @include sprite(pos-x pos-y,width,height);
+//@include position(absolute,58px,2px,2px,10px);  ---- @include position(position,top,right,bottom,left);
+//@include button(small);                         ---- @include button(size); size=small,large
+//@include button(small,sec);                     ---- @include button(size,alternate); alternate=sec
+//@include placeholder(red,15px);                 ---- @include placeholder(color,font-size);
+//@include background-gradient(red,red,vertical); ---- @include background-gradient(color,color,orientation); orientation=vertical,horizontal,''
+//@include opacity(1);                            ---- @include opacity(opacity);
+//@include triangle(red,up,5px);                  ---- @include triangle(color,direction,size); direction=up,down,left,right
+//
+//Sprite
+@mixin sprite($pos:null null, $s-width:0, $s-height:0) {
+    background:url('#{$image-path}sprite.png') no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: $s-width;
+    height: $s-height;
+    background-position: $pos;
+}
+
+//Position
+@mixin position($positon,
+$top:null,
+$right:null,
+$bottom:null,
+$left:null) {
+    position: $positon;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+//Button
+@mixin button($size:null,
+$sec:null) {
+    @if $size=='large' {
+        padding: 12px 20px;
+        font-size: 20px;
+    }
+    @else if $size=='small' {
+        padding: 7px 10px;
+        font-size: 15px;
+    }
+    @else {
+        padding: 10px 15px;
+        font-size: 18px;
+    }
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: none;
+    display: inline-block;
+    border-radius:3px;
+    margin:0 10px;
+    @if $sec=='sec' {
+        background: $sec-btn;
+        color: $sec-clr;
+        border: 1px solid $pri-btn;
+        &--active,
+        &:hover,
+        &:focus {
+            background: $pri-btn;
+            color: $pri-clr;
+            border-color: $sec-btn;
+        }
+    }
+    @else {
+        background: $pri-btn;
+        color: $pri-clr;
+        border: 1px solid $sec-btn;
+        &--active,
+        &:hover,
+        &:focus {
+            background: $sec-btn;
+            color: $sec-clr;
+            border-color: $pri-btn;
+        }
+    }
+}
+
+//Placeholder
+@mixin placeholder($color:null,
+$fontsize:null) {
+    &::-webkit-input-placeholder {
+        color: $color;
+        font-size: $fontsize;
+    }
+    &::-moz-placeholder {
+        color: $color;
+        font-size: $fontsize;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+        font-size: $fontsize;
+    }
+    &:-moz-placeholder {
+        color: $color;
+        font-size: $fontsize;
+    }
+}
+
+//Background gradient
+@mixin background-gradient($start-color:null,
+$end-color:null,
+$orientation:null) {
+    @if $orientation=='vertical' {
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    }
+    @else if $orientation=='horizontal' {
+        background: linear-gradient(to right, $start-color, $end-color);
+    }
+    @else {
+        background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+
+//Opacity
+@mixin opacity($opacity:null) {
+    opacity: $opacity;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100})";
+}
+
+//Triangle shape
+@mixin triangle($color:null,
+$direction:null,
+$size: null) {
+    width: 0;
+    height: 0;
+    @if $direction==down {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+        margin-top: 0 - round( $size / 2.5);
+    }
+    @else if $direction==up {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+        margin-bottom: 0 - round( $size / 2.5);
+    }
+    @else if $direction==right {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+        margin-right: -$size;
+    }
+    @else if $direction==left {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+        margin-left: -$size;
+    }
+}

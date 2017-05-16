@@ -1,0 +1,59 @@
+@@include('../layout/head.html',{ "title": "Study Project" })
+
+<body>
+    @@include('../layout/header.html')
+    <main class="mainContainer">
+        <!--Select DropDown-->
+        <section class="selectDrop">
+            <div class="selectDrop__container">
+                <input type="text" class="js__selectDrop__searchArea selectDrop__searchArea" placeholder="Search">
+                <div class="js__selectDrop__dropContainer selectDrop__dropContainer">
+                    <input data-field="search" type="text" class="js__selectDrop__searchBox selectDrop__searchBox">
+                    <ul class="selectDrop__listHead">
+                        <li class="selectDrop__list">Anand</li>
+                        <li class="selectDrop__list">Arvind</li>
+                        <li class="selectDrop__list">Aravind</li>
+                        <li class="selectDrop__list">Aswin</li>
+                        <li class="selectDrop__list">Wilson</li>
+                        <li class="selectDrop__list">Alagunambi</li>
+                        <li class="selectDrop__list">Welkin</li>
+                        <li class="selectDrop__list">Wilson</li>
+                        <li class="selectDrop__list">Vivek</li>
+                        <li class="selectDrop__list">Zahira</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--Select DropDown-->
+        <section class="slider">
+            <div class="slider__container">
+                <div class="slider__containerInner">
+                    <button type="button" class="slider__leftArrow">left</button>
+                    <ul class="slider__listHead">
+                        <li class="slider__list" data-slider="1"><img src="assets/images/Royal-Enfield.jpg" alt="Slider Image" class="slider__listImage"></li>
+                        <li class="slider__list" data-slider="2"><img src="assets/images/Royal-Enfield.jpg" alt="Slider Image" class="slider__listImage"></li>
+                        <li class="slider__list" data-slider="3"><img src="assets/images/Royal-Enfield.jpg" alt="Slider Image" class="slider__listImage"></li>
+                        <li class="slider__list" data-slider="4"><img src="assets/images/Royal-Enfield.jpg" alt="Slider Image" class="slider__listImage"></li>
+                        <li class="slider__list" data-slider="5"><img src="assets/images/Royal-Enfield.jpg" alt="Slider Image" class="slider__listImage"></li>
+                    </ul>
+                    <button type="button" class="slider__rightArrow">Right</button>
+                    <div class="slider__dots">
+                        <ul class="slider__dotsListHead">
+                            <li class="slider__dotsList" slider-dots="1">.</li>
+                            <li class="slider__dotsList" slider-dots="2">.</li>
+                            <li class="slider__dotsList" slider-dots="3">.</li>
+                            <li class="slider__dotsList" slider-dots="4">.</li>
+                            <li class="slider__dotsList" slider-dots="5">.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    @@include('../layout/footer.html')
+    <!--Script-->
+    <script src="assets/js/lib.js"></script>
+    <script src="assets/js/ui.js"></script>
+</body>
+
+</html>
