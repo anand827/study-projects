@@ -127,3 +127,40 @@ header {
         }
     }
 }
+
+//String
+.string {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin: 5% 0;
+    &__container {
+        float: left;
+        width: 100%;
+    }
+    &__containerInner {
+        float: left;
+        width: 100%;
+    }
+    &__inputContainer {
+        display: inline-block;
+        width: 400px;
+        padding: 20px 0;
+    }
+    &__input {
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #CCC;
+        outline: none;
+        &:focus {
+            background: #CCCCCC;
+        }
+    }
+    &__resultContainer {
+        .string {
+            &__input {
+                width: (20%/3);
+            }
+        }
+    }
+}

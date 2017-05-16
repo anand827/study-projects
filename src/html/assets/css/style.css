@@ -16,10 +16,10 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: all 2s ease-in-out;
-  -o-transition: all 2s ease-in-out;
-  -moz-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 header {
@@ -167,4 +167,42 @@ header {
 
 .slider__dotsList--active {
   border: 2px solid #000;
+}
+
+.string {
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin: 5% 0;
+}
+
+.string__container {
+  float: left;
+  width: 100%;
+}
+
+.string__containerInner {
+  float: left;
+  width: 100%;
+}
+
+.string__inputContainer {
+  display: inline-block;
+  width: 400px;
+  padding: 20px 0;
+}
+
+.string__input {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #CCC;
+  outline: none;
+}
+
+.string__input:focus {
+  background: #CCCCCC;
+}
+
+.string__resultContainer .string__input {
+  width: 6.66667%;
 }
