@@ -23,19 +23,47 @@ $(document).ready(function() {
     });
     $(document).mouseup(function(e) {
         var container = $(".js__selectDrop__dropContainer");
-
         // if the target of the click isn't the container nor a descendant of the container
         if (!container.is(e.target) && container.has(e.target).length === 0) {
             container.hide();
         }
     });
     //On type Search
-    //slider
-    // $('[data-slider="1"]').addClass('active');
-    // $('[data-slider="1"]').show();
-    // setInterval(function() {
-    //     var id = $('.slider__list.active').attr('data-slider');
-    //     $('[data-slider]').removeClass('active').hide();
-    //     $('[data-slider="' + id + '"]').next().addClass('active').show();
-    // }, 2000);
+    //Social Functionalities
+    $('.socialFunctions__commentSubmit').click(function() {
+        var commentID = $('.socialFunctions__commentId').val();
+        var comment = $('.socialFunctions__commentBox').val();
+        var appendDiv = '<div class="socialFunctions__commentShow"><div class="socialFunctions__commentIdShow"><h3 class="socialFunctions__commentIdValue">' + commentID + ':</h3></div><div class="socialFunctions__commentTextBox"><textarea class="socialFunctions__CommentBoxContent" readonly>' + comment + '</textarea></div><div class="socialFunctions__options"><a href="javascript:;" class="socialFunctions__commentBoxEdit">Edit</a> <a href="javascript:;" class="socialFunctions__commentBoxDelete">Delete</a></div></div>';
+        if ($('.socialFunctions__commentId').val().length == 0 || $('.socialFunctions__commentBox').val().length == 0) {
+            alert('No Value');
+        } else {
+            $('.socialFunctions__commentSection').append(appendDiv);
+            // alert('Value Presented');
+            // alert(commentID);
+            // alert(comment);
+            editDelete();
+        }
+        $('.socialFunctions__commentId').val('');
+        $('.socialFunctions__commentBox').val('');
+    });
+    $('.socialFunctions__commentDiscard').click(function() {
+        $('.socialFunctions__commentId').val('');
+        $('.socialFunctions__commentBox').val('');
+    });
+    editDelete();
+
+    function editDelete() {
+        //Delete Function
+        $('.socialFunctions__commentBoxDelete').click(function() {
+            $(this).parents('.socialFunctions__commentShow').remove();
+        });
+        //Edit Function
+        $('.socialFunctions__commentBoxEdit').click(function() {
+            alert('Hi');
+            $(this).parents('.socialFunctions__commentShow').find('.socialFunctions__CommentBoxContent').addClass('active').removeAttr('readonly');
+        });
+    }
+
+    //String Seperation
+
 });

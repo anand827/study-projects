@@ -61,8 +61,8 @@ header {
   float: left;
   width: 100%;
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
   border: 1px solid #000;
   display: none;
 }
@@ -205,4 +205,98 @@ header {
 
 .string__resultContainer .string__input {
   width: 6.66667%;
+}
+
+.socialFunctions {
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin: 5% 0;
+}
+
+.socialFunctions__commentGet,
+.socialFunctions__commentShow {
+  width: 38%;
+  display: block;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.socialFunctions__commentId {
+  width: 75%;
+  padding: 10px;
+  border: 1px solid #CCC;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.socialFunctions__commentId:focus {
+  background: #CCC;
+}
+
+.socialFunctions__commentBox {
+  width: 75%;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid #CCC;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.socialFunctions__commentBox:focus {
+  background: #CCC;
+}
+
+.socialFunctions__commentShow {
+  margin-bottom: 10px;
+}
+
+.socialFunctions__commentIdShow {
+  float: left;
+  width: 20%;
+}
+
+.socialFunctions__commentIdValue {
+  font-size: 22px;
+  text-align: left;
+  margin: 0;
+}
+
+.socialFunctions__commentTextBox {
+  float: left;
+  width: 80%;
+}
+
+.socialFunctions__CommentBoxContent {
+  text-align: left;
+  margin: 0;
+  font-size: 14px;
+  line-height: 26px;
+  width: 100%;
+  border: transparent;
+  resize: none;
+  outline: none;
+}
+
+.socialFunctions__commentSubmit,
+.socialFunctions__commentDiscard {
+  width: 30%;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #666666;
+  color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  cursor: pointer;
+}
+
+.socialFunctions__commentSubmit:focus,
+.socialFunctions__commentDiscard:focus {
+  background: #509822;
+  outline: none;
+}
+
+.socialFunctions__options {
+  width: 100%;
+  float: left;
+  text-align: right;
 }

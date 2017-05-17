@@ -164,3 +164,84 @@ header {
         }
     }
 }
+
+//Social Functionalities
+.socialFunctions {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin: 5% 0;
+    &__commentGet {
+        width: 38%;
+        display: block;
+        margin: 20px auto;
+        overflow: hidden;
+    }
+    &__commentId {
+        width: 75%;
+        padding: 10px;
+        border: 1px solid #CCC;
+        margin-bottom: 15px;
+        outline: none;
+        &:focus {
+            background: #CCC;
+        }
+    }
+    &__commentBox {
+        width: 75%;
+        height: 200px;
+        padding: 10px;
+        border: 1px solid #CCC;
+        outline: none;
+        margin-bottom: 10px;
+        &:focus {
+            background: #CCC;
+        }
+    }
+    &__commentShow {
+        @extend .socialFunctions__commentGet;
+        margin-bottom: 10px;
+    }
+    &__commentIdShow {
+        float: left;
+        width: 20%;
+    }
+    &__commentIdValue {
+        font-size: 22px;
+        text-align: left;
+        margin: 0;
+    }
+    &__commentTextBox {
+        float: left;
+        width: 80%;
+    }
+    &__CommentBoxContent {
+        text-align: left;
+        margin: 0;
+        font-size: 14px;
+        line-height: 26px;
+        width: 100%;
+        border: transparent;
+        resize: none;
+        outline: none;
+    }
+    &__commentSubmit,
+    &__commentDiscard {
+        width: 30%;
+        margin-bottom: 15px;
+        padding: 10px;
+        background: #666666;
+        color: #FFFFFF;
+        border: 1px solid #CCCCCC;
+        cursor: pointer;
+        &:focus {
+            background: #509822;
+            outline: none;
+        }
+    }
+    &__options {
+        width: 100%;
+        float: left;
+        text-align: right;
+    }
+}
