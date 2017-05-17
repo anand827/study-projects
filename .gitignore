@@ -16,7 +16,7 @@
 .c9/
 *.launch
 .settings/
-
+.projecttoix.json
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
