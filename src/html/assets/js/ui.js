@@ -61,8 +61,7 @@ $(document).ready(function () {
         });
         //Edit Function
         $('.socialFunctions__commentBoxEdit').click(function () {
-            alert('Hi');
-            $(this).parents('.socialFunctions__commentShow').find('.socialFunctions__CommentBoxContent').addClass('active').removeAttr('readonly');
+            $(this).parents('.socialFunctions__commentShow').find('.socialFunctions__CommentBoxContent').addClass('socialFunctions__CommentBoxContent--active').removeAttr('readonly');
         });
     }
 
