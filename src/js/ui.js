@@ -65,5 +65,18 @@ $(document).ready(function() {
     }
 
     //String Seperation
-
+    $('.string__inputSubmit').click(function() {
+        var getVal = $('.string__getValue').val();
+        var valSplit = getVal.split(',');
+        var firstVal = [];
+        var secondVal = [];
+        for (var i = 0; i < valSplit.length; i++) {
+            //console.log(valSplit[i].split('.'));
+            var pull = valSplit[i].split('.');
+            firstVal.push(pull[0]);
+            secondVal.push('.' + pull[1])
+        }
+        $('.string__inputOne').val(firstVal);
+        $('.string__inputTwo').val(secondVal);
+    });
 });
