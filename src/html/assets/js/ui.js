@@ -35,7 +35,7 @@ $(document).ready(function () {
     $('.socialFunctions__commentSubmit').click(function () {
         var commentID = $('.socialFunctions__commentId').val();
         var comment = $('.socialFunctions__commentBox').val();
-        var appendDiv = '<div class="socialFunctions__commentShow"><div class="socialFunctions__commentIdShow"><h3 class="socialFunctions__commentIdValue">' + commentID + ':</h3></div><div class="socialFunctions__commentTextBox"><textarea class="socialFunctions__CommentBoxContent" readonly>' + comment + '</textarea></div><div class="socialFunctions__options"><a href="javascript:;" class="socialFunctions__commentBoxEdit">Edit</a> <a href="javascript:;" class="socialFunctions__commentBoxDelete">Delete</a></div></div>';
+        var appendDiv = '<div class="socialFunctions__commentShow"><div class="socialFunctions__commentIdShow"><h3 class="socialFunctions__commentIdValue">' + commentID + ':</h3></div><div class="socialFunctions__commentTextBox"><textarea class="socialFunctions__CommentBoxContent" readonly>' + comment + '</textarea></div><div class="socialFunctions__options"><a href="javascript:;" class="socialFunctions__commentBoxEdit">Edit</a> <a href="javascript:;" class="socialFunctions__commentBoxSave">Save</a> <a href="javascript:;" class="socialFunctions__commentBoxDelete">Delete</a></div></div>';
         if ($('.socialFunctions__commentId').val().length == 0 || $('.socialFunctions__commentBox').val().length == 0) {
             alert('No Value');
         } else {
@@ -60,8 +60,18 @@ $(document).ready(function () {
             $(this).parents('.socialFunctions__commentShow').remove();
         });
         //Edit Function
+        $('.socialFunctions__commentBoxSave').hide();
         $('.socialFunctions__commentBoxEdit').click(function () {
             $(this).parents('.socialFunctions__commentShow').find('.socialFunctions__CommentBoxContent').addClass('socialFunctions__CommentBoxContent--active').removeAttr('readonly');
+            $(this).hide();
+            $(this).next('.socialFunctions__commentBoxSave').show();
+        });
+        $('.socialFunctions__commentBoxSave').click(function () {
+            var editedVal = $('.socialFunctions__CommentBoxContent').val();
+            $(this).parent().closest('.socialFunctions__commentTextBox textarea.socialFunctions__CommentBoxContent').val(editedVal);
+            $(this).parents('.socialFunctions__commentShow').find('.socialFunctions__CommentBoxContent').removeClass('socialFunctions__CommentBoxContent--active');
+            $(this).hide();
+            $(this).prev('.socialFunctions__commentBoxEdit').show();
         });
     }
 
